@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Notes</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="shortcut icon" href="https://media.gettyimages.com/photos/todo-picture-id1168122629?s=612x612"
+        type="image/x-icon" />
+    <link rel="stylesheet" href="css/todo.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Hubballi&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    
+    <section class="todoapp">
+        <header class="header">
+            <h1>My Notes</h1>
+                <input type="text" class="new-todo" autocomplete="off" placeholder="What Do You Want To be Done..?" v-model="newtodo" @keyup.enter="addtodo">
+            <button @click="addtodo" class="add">Add Note</button>
+            <div class="d-flex">
+                <h2 v-if="show == null" class="show">Click Enter to Save Your Edit</h2>
+                <h2 v-if="show == null" class="or">OR</h2>
+                <h2 v-if="show == null" class="show">Click ESC to Cancel Editing</h2>
+            </div>
+        </header>
+        <section class="main" >
+            <ul class="todo-list" >
+                <li class="todo" v-for="todo in filtertodos" :class="{completed:todo.completed,editing:todo==editingTodo}" >
+                    <div class="view" @dblclick="edittodo(todo)">
+                        <input class="toggle" type="checkbox" v-model="todo.completed" />
+                        <label >{{todo.title}}</label>
+                        <button class="destroy" @click="deletetodo(todo)"></button>
+                    </div>
+                    <input class="edit" type="text" v-model="todo.title" @keyup.enter="done()" @keyup.esc="esc()">
+                    <h6 v-if="show != null">Double Click to Edit Note</h6>
+                </li>
+            </ul>
+        </section>
+        <footer class="footer">
+            <span class="todo-count">
+              <strong>{{numItem()}}</strong> {{itemtext()}} left
+            </span>
+            <ul class="filters">
+              <li><a href="#" @click.prevent="visibilty='all'"
+                 :class="{selected:visibilty=='all'}">All </a></li>
+              <li><a href="#" @click.prevent="visibilty='active'" 
+                :class="{selected:visibilty=='active'}">Active </a></li>
+              <li><a href="#" @click.prevent="visibilty='completed'"
+                 :class="{selected:visibilty=='completed'}">Completed </a></li>
+            </ul>
+            <button class="clear-completed" @click="clearnotes">
+                Remove Completed 
+            </button>
+          </footer>
+    </section>
+
+    <script src="js/vue.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

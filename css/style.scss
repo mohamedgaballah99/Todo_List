@@ -1,0 +1,65 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Hubballi', cursive !important;
+}
+.header h1{
+    top: -70px !important;
+    font-size: 60px !important;
+}
+.todo-list li .destroy{
+    display: block!important;
+    cursor: pointer!important;
+    &:hover{
+        color: #b83f45!important;
+    }
+}
+.new-todo{
+    padding-left: 10px !important;
+}
+.add{
+    background: #b83f45;
+    color: white;
+    padding: 8px 20px;
+    font-size: 20px;
+    border: 2px solid #fff;
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    &:hover{
+        color: #b83f45!important;
+        border: 2px solid #b83f45;
+        background-color: white;
+    }
+}
+
+.footer{
+    height: 50px !important;
+}
+.toggle{
+    cursor: pointer;
+}
+h6{
+    color: rgba(128, 128, 128, 0.589);
+    padding: 1px 7px;
+}
+.show{
+    color: #b83f45;
+}
+.or{
+    padding: 0px 5px;
+    color: #fff !important;
+    background: #b83f45;
+    margin: 0px 5px;
+    border-radius: 20px;
+}
+.d-flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:5px 0px;
+}
