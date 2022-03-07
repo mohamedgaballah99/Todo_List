@@ -81,6 +81,7 @@
               esc(){
                   this.editingTodo.title=this.oldEditingtodo;
                   this.editingTodo = null;
+                  this.show='';
               },
           },
           watch:{
